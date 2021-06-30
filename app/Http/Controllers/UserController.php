@@ -3,22 +3,16 @@
 namespace App\Http\Controllers;
 
 use App\Models\User;
-use App\Repositories\CountryGetterService;
-use App\Repositories\FileUploaderService;
 use App\Repositories\UserRepository;
 use Illuminate\Http\Request;
 
 class UserController extends Controller
 {
     private $userRepository;
-    private $countryGetterService;
-    private $fileUploaderService;
 
-    public function __construct(UserRepository $userRepository, CountryGetterService $countryGetterService, FileUploaderService $fileUploaderService)
+    public function __construct(UserRepository $userRepository)
     {
         $this->userRepository = $userRepository;
-        $this->countryGetterService = $countryGetterService;
-        $this->fileUploaderService = $fileUploaderService;
     }
 
     public function index()
