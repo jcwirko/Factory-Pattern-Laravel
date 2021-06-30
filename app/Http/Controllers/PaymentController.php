@@ -56,21 +56,6 @@ class PaymentController extends Controller
         return response()->json($payment);
     }
 
-    public function formatToDecimal($number)
-    {
-        return number_format($number / 100, 2, '.', '');
-    }
-
-    private function parseProductsNames(array $productsNames): array
-    {
-        return array_map(
-            function($name) {
-                return ucwords(str_replace('_', ' ', $name));
-            },
-            $productsNames
-        );
-    }
-
     private function generatePaymentMetadata(Collection $products, float $subtotal): Collection
     {
         $metadata[] = $products->mapWithKeys(function($product) {
