@@ -57,19 +57,4 @@ class UserController extends Controller
 
         return response()->json($user);
     }
-
-    public function getWithSameFirstAndLastName()
-    {
-        $name = request()->get('name');
-
-        /*
-         * Logica de negocio
-         * ...
-         * ...
-         */
-
-        $users = $this->userRepository->getWithSameFirstAndLastName($name);
-
-        return response()->json($users);
-    }
 }
